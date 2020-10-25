@@ -1,8 +1,10 @@
-import Daemon from './characters/daemon';
+import GameSavingLoader from './gameSavingLoader';
+import GameSaving from './gameSaving';
 
-const character = new Daemon('Alex');
+console.log(GameSavingLoader.load());
 
-character.stoned = true;
-character.attack = 10;
-character.range = 2;
-console.log(character);
+GameSavingLoader.load()
+  .then((saving) => console.log(new GameSaving(JSON.parse(saving))))
+  .catch((error) => {
+    throw new Error(error);
+  });
