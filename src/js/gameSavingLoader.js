@@ -8,12 +8,12 @@ class GameSavingLoader {
   /**
    * return new Promise(string)
    */
-  static load() {
+  static load(data) {
     return new Promise(
-      (resolve, reject) => read()
-        .then((data) => json(data))
-        .then((result) => resolve(result))
-        .catch((error) => reject(error)),
+      (resolve, reject) => read(data)
+        .catch((error) => reject(error))
+        .then((readData) => json(readData))
+        .then((result) => resolve(result)),
     );
   }
 }
