@@ -13,7 +13,7 @@ describe('success load()', () => {
   });
 });
 
-describe('success load()', () => {
+describe('fail load()', () => {
   test('load data', (done) => {
     const result = new Error('data empty');
     // eslint-disable-next-line no-unused-vars
