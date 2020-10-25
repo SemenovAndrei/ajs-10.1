@@ -1,4 +1,5 @@
 import GameSavingLoader from '../gameSavingLoader';
+import GameSaving from '../gameSaving';
 
 const data = '{"id":9,"created":1546300800,"userInfo":{"id":1,"name":"Hitman","level":10,"points":2000}}';
 
@@ -7,7 +8,7 @@ describe('success load()', () => {
     // eslint-disable-next-line no-unused-vars
     const expected = GameSavingLoader.load(data)
       .then((saving) => {
-        expect(saving).toEqual(data);
+        expect(saving).toEqual(new GameSaving(JSON.parse(data)));
         done();
       });
   });
